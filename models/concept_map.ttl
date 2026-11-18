@@ -1,0 +1,125 @@
+@prefix ex: <http://example.org/it_infrastructure#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Backup a owl:Class ;
+    rdfs:label "Резервне копіювання"@uk ;
+    ex:відновлює ex:DB .
+
+ex:Firewall a owl:Class ;
+    rdfs:label "Мережевий екран"@uk ;
+    ex:захищає ex:Server ;
+    ex:фільтрує_трафік_для ex:Network .
+
+ex:Infrastructure a owl:Class ;
+    rdfs:label "IT-інфраструктура"@uk ;
+    ex:включає ex:Software ;
+    ex:покладається_на ex:Network ;
+    ex:складається_з ex:Hardware .
+
+ex:Monitoring a owl:Class ;
+    rdfs:label "Моніторинг"@uk ;
+    ex:відстежує_стан ex:Server ;
+    ex:контролює_навантаження ex:Network .
+
+ex:Security a owl:Class ;
+    rdfs:label "Інформаційна безпека"@uk ;
+    ex:регламентує_доступ_до ex:OS .
+
+ex:використовує a owl:ObjectProperty ;
+    rdfs:label "використовує"@uk .
+
+ex:включає a owl:ObjectProperty ;
+    rdfs:label "включає"@uk .
+
+ex:відновлює a owl:ObjectProperty ;
+    rdfs:label "відновлює"@uk .
+
+ex:відстежує_стан a owl:ObjectProperty ;
+    rdfs:label "відстежує стан"@uk .
+
+ex:забезпечує_виконання a owl:ObjectProperty ;
+    rdfs:label "забезпечує виконання"@uk .
+
+ex:запускає a owl:ObjectProperty ;
+    rdfs:label "запускає"@uk .
+
+ex:захищає a owl:ObjectProperty ;
+    rdfs:label "захищає"@uk .
+
+ex:контролює_навантаження a owl:ObjectProperty ;
+    rdfs:label "контролює навантаження"@uk .
+
+ex:містить a owl:ObjectProperty ;
+    rdfs:label "містить"@uk .
+
+ex:оркеструється_через a owl:ObjectProperty ;
+    rdfs:label "оркеструється через"@uk .
+
+ex:покладається_на a owl:ObjectProperty ;
+    rdfs:label "покладається на"@uk .
+
+ex:регламентує_доступ_до a owl:ObjectProperty ;
+    rdfs:label "регламентує доступ до"@uk .
+
+ex:розгортає a owl:ObjectProperty ;
+    rdfs:label "розгортає"@uk .
+
+ex:складається_з a owl:ObjectProperty ;
+    rdfs:label "складається з"@uk .
+
+ex:управляється_через a owl:ObjectProperty ;
+    rdfs:label "управляється через"@uk .
+
+ex:фільтрує_трафік_для a owl:ObjectProperty ;
+    rdfs:label "фільтрує трафік для"@uk .
+
+ex:ізолює a owl:ObjectProperty ;
+    rdfs:label "ізолює"@uk .
+
+ex:Container a owl:Class ;
+    rdfs:label "Контейнер"@uk ;
+    ex:оркеструється_через ex:K8s .
+
+ex:Hardware a owl:Class ;
+    rdfs:label "Апаратне забезпечення"@uk ;
+    ex:містить ex:Server .
+
+ex:Hypervisor a owl:Class ;
+    rdfs:label "Гіпервізор"@uk ;
+    ex:розгортає ex:VM .
+
+ex:K8s a owl:Class ;
+    rdfs:label "Kubernetes"@uk .
+
+ex:Router a owl:Class ;
+    rdfs:label "Маршрутизатор"@uk .
+
+ex:Switch a owl:Class ;
+    rdfs:label "Комутатор"@uk .
+
+ex:VM a owl:Class ;
+    rdfs:label "Віртуальна машина"@uk ;
+    ex:забезпечує_виконання ex:Software .
+
+ex:DB a owl:Class ;
+    rdfs:label "База даних"@uk .
+
+ex:OS a owl:Class ;
+    rdfs:label "Операційна система"@uk ;
+    ex:ізолює ex:Container .
+
+ex:Software a owl:Class ;
+    rdfs:label "Програмне забезпечення"@uk ;
+    ex:включає ex:DB ;
+    ex:управляється_через ex:OS .
+
+ex:Network a owl:Class ;
+    rdfs:label "Мережева інфраструктура"@uk ;
+    ex:використовує ex:Router,
+        ex:Switch .
+
+ex:Server a owl:Class ;
+    rdfs:label "Сервер"@uk ;
+    ex:запускає ex:Hypervisor .
+

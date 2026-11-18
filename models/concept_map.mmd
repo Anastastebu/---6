@@ -1,0 +1,45 @@
+graph TD
+    %% Концепти IT-інфраструктури
+    Infrastructure["IT-інфраструктура"]
+    Hardware["Апаратне забезпечення"]
+    Software["Програмне забезпечення"]
+    Network["Мережева інфраструктура"]
+    Server["Сервер"]
+    VM["Віртуальна машина"]
+    Hypervisor["Гіпервізор"]
+    Container["Контейнер"]
+    K8s["Kubernetes"]
+    OS["Операційна система"]
+    DB["База даних"]
+    Router["Маршрутизатор"]
+    Switch["Комутатор"]
+    Firewall["Мережевий екран"]
+    Backup["Резервне копіювання"]
+    Monitoring["Моніторинг"]
+    Security["Інформаційна безпека"]
+
+    %% Ієрархічні зв'язки (Hierarchical relationships)
+    Infrastructure -->|"складається з"| Hardware
+    Infrastructure -->|"включає"| Software
+    Infrastructure -->|"покладається на"| Network
+    
+    Hardware -->|"містить"| Server
+    Software -->|"управляється через"| OS
+    Software -->|"включає"| DB
+    Network -->|"використовує"| Router
+    Network -->|"використовує"| Switch
+
+    %% Віртуалізація та Контейнеризація
+    Server -->|"запускає"| Hypervisor
+    Hypervisor -->|"розгортає"| VM
+    OS -->|"ізолює"| Container
+    Container -->|"оркеструється через"| K8s
+
+    %% Крос-зв'язки (Cross-links) — Зв'язують різні гілки дерева!
+    VM -->|"забезпечує виконання"| Software
+    Firewall -->|"захищає"| Server
+    Firewall -->|"фільтрує трафік для"| Network
+    Backup -->|"відновлює"| DB
+    Monitoring -->|"відстежує стан"| Server
+    Monitoring -->|"контролює навантаження"| Network
+    Security -->|"регламентує доступ до"| OS
